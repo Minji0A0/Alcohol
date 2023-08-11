@@ -88,6 +88,11 @@
     <section>
         <div>
             <p>바로 여기가 메인</p>
+            <div class="wrap-grid">
+            <c:forEach items="${singlemaltList }" var="vo">
+            	<div>${vo.productName }</div>
+            </c:forEach>
+            </div>
         </div>
     </section>
     <!-- 오른쪽 로그인 및 회원 정보 -->

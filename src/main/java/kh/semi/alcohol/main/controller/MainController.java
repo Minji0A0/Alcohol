@@ -7,12 +7,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import kh.semi.alcohol.member.model.service.AlcoholService;
+
 @WebServlet("/")
 public class MainController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+    private AlcoholService service;
     public MainController() {
         super();
+        service = new AlcoholService();
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -23,6 +26,7 @@ public class MainController extends HttpServlet {
 			request.setAttribute("msg", msg);
 		}
 		
+		request.setAttribute("singlemaltList", service.selectList("싱글몰트"));
 		
 		request.getRequestDispatcher("/WEB-INF/view/index.jsp").forward(request, response);
 	}
