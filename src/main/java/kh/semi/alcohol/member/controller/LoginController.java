@@ -7,12 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import kh.semi.alcohol.member.model.dto.memberDTO;
+import kh.semi.alcohol.member.model.dto.MemberDTO;
 import kh.semi.alcohol.member.model.service.MemberService;
 
-/**
- * Servlet implementation class LoginController
- */
 @WebServlet("/login")
 public class LoginController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -27,7 +24,7 @@ public class LoginController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String userId = request.getParameter("userId");
 		String userPw = request.getParameter("userPw");
-		memberDTO result = service.selectOne(userId, userPw);
+		MemberDTO result = service.selectOne(userId, userPw);
 		if (result != null) {
 			request.getSession().setAttribute("loginedInfo", result);
 			response.sendRedirect(request.getContextPath()+"/");

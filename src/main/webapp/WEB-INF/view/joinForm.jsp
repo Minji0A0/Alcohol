@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -88,11 +89,44 @@
     <!-- 메인 내용 -->
     <section>
         <div>
-            <p>바로 여기가 메인</p>
-            <div class="wrap-grid">
-            <c:forEach items="${singlemaltList }" var="vo">
-            	<div>${vo.productName }</div>
-            </c:forEach>
+            <div class="in_joinform">
+    <h2>회원 가입</h2>
+    <form action="join" method="post" enctype="multipart/form-data">
+        <table>
+            <tr>
+                <td>아이디:</td>
+                <td><input type="text" name="userId" required></td>
+            </tr>
+            <tr>
+                <td>이름:</td>
+                <td><input type="text" name="userName" required></td>
+            </tr>
+            <tr>
+                <td>비밀번호:</td>
+                <td><input type="password" name="userPw" required></td>
+            </tr>
+            <tr>
+                <td>이메일:</td>
+                <td><input type="email" name="userEmail"></td>
+            </tr>
+            <tr>
+                <td>집 주소:</td>
+                <td><input type="text" name="userHome"></td>
+            </tr>
+            <tr>
+                <td>휴대폰 번호:</td>
+                <td><input type="text" name="userCellphone"></td>
+            </tr>
+            <tr>
+                <td>집 전화번호:</td>
+                <td><input type="text" name="userHomePhone"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="submit" value="JOIN"></td>
+				<td><a href="${pageContext.request.contextPath}/"> <button type="button" class="rounded-button" style="text-align: right;">CANCLE</button></a></td>
+            </tr>
+        </table>
+    </form>
             </div>
         </div>
     </section>

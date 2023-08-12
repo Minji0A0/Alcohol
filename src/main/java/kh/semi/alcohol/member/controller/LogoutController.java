@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import kh.semi.alcohol.member.model.dto.memberDTO;
 import kh.semi.alcohol.member.model.service.MemberService;
 
 @WebServlet("/logout")
