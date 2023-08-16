@@ -13,19 +13,7 @@ import kh.semi.alcohol.member.model.dto.AlcoholDTO;
 public class AlcoholDAO {
 
 
-	public List<AlcoholDTO> selectList(Connection conn, String borderKind) {
-
-//	---------------- -------- ------------- 
-//	PRICE_BORDER_NO  NOT NULL NUMBER(30)    
-//	BORDER_KIND      NOT NULL VARCHAR2(100) 
-//	PRODUCT_NAME     NOT NULL VARCHAR2(255) 
-//	RIPENING                  VARCHAR2(100) 
-//	PRICE            NOT NULL VARCHAR2(100) 
-//	CAPACITY                  VARCHAR2(100) 
-//	DATE_OF_PURCHASE          VARCHAR2(100) 
-//	MARKET           NOT NULL VARCHAR2(100) 
-//	NOTE                      VARCHAR2(100) 
-
+	public List<AlcoholDTO> selectListAlcohol(Connection conn, String borderKind) {
 		List<AlcoholDTO>  result = new ArrayList<AlcoholDTO>();
 		String query = "select * from TB_ALCOHOL where BORDER_KIND=?";
 		PreparedStatement pstmt = null;
@@ -50,7 +38,7 @@ public class AlcoholDAO {
 		return result;
 	}
 
-	public AlcoholDTO selectOne(Connection conn, String borderKind, String productName, String price) {
+	public AlcoholDTO selectOneAlcohol(Connection conn, String borderKind, String productName, String price) {
 
 //	---------------- -------- ------------- 
 //	PRICE_BORDER_NO  NOT NULL NUMBER(30)    

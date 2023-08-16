@@ -13,7 +13,7 @@ import kh.semi.alcohol.member.model.dto.JoinDTO;
 
 public class JoinDAO {
 	
-	public List<JoinDTO> selectList(Connection conn, String userId, String userPw) {
+	public List<JoinDTO> selectListAlcohol(Connection conn, String userId, String userPw) {
 
 //		-------------- -------- ------------- 
 //		USER_ID        NOT NULL VARCHAR2(20)  
@@ -48,7 +48,7 @@ public class JoinDAO {
 			return result;
 		}
 
-	public JoinDTO selectOne(Connection conn, String userId, String userPw) {
+	public JoinDTO selectOneAlcohol(Connection conn, String userId, String userPw) {
 
 //	-------------- -------- ------------- 
 //	USER_ID        NOT NULL VARCHAR2(20)  

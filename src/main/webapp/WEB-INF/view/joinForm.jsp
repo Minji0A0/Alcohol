@@ -16,13 +16,13 @@
     <script>
     </script>
 
-    <style>
+     <style>
         *{margin: 0; padding: 0;box-sizing: border-box;}
         
         /* TODO 상단 Hhader 고정  nav 고정 해야함 */
         .center{text-align: center; justify-content: center;}
         #container{width: 1200px; margin: 20px auto;}
-        header{width:  100%; height: 10%; background-color: palevioletred; padding: 5px;}
+        header{width:  100%; height: 30px%; background-color: palevioletred; padding: 5px; position: fixed;}
         section{padding-left: 300px ;width: 100%; height: 2000px; background-color: rgb(255, 235, 238);float: left;}
         input[type="submit"],button[type="BUTTON"],button[type="submit"] {background-color: rgb(204, 193, 218); border:2px solid rgb(217, 150, 148); padding: 5px; border-radius: 20%; }
         .rounded-submit {display: inline-block; padding: 5px 10px; border: none; border-radius: 5px; cursor: pointer;}
@@ -37,9 +37,8 @@
         .in_add { width: 250px; height:600px; padding: 10px;}
         input[type="text"] {width: 90px; padding: 3px; margin: 5px; justify-content: right;  }
         input[type="password"] {width: 90px; padding: 3px; margin: 5px; justify-content: right;  }
-        nav{background-color: pink;}
-        nav ul {list-style-type: none; display: flex; padding: 0px;}
-        nav ul li {margin: 0 70px; text-transform: uppercase; font-weight: bold; color: #333;}
+        nav ul {margin:35px ;background-color: pink;  width: 100%;  list-style-type: none; display: flex; padding: 22px;position: fixed;  justify-content: center;}
+        nav ul li {padding: 0 20px ;margin: 0 30px; text-transform: uppercase; font-weight: bold; color: #333;}
         footer{width: 100%; height: 100px;;background-color: pink; position: fixed; bottom: 20px;}
         .in_foott{width: 100%; height: 20px;;background-color: gray; clear: left; position: fixed; bottom: 0;}
         .foot_logo{padding: 40px 50px;}
