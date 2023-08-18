@@ -1,7 +1,6 @@
 # Compiled class file
 *.class
 bin/
-*.classpath
 
 # Log file
 *.log
@@ -13,7 +12,7 @@ bin/
 .mtj.tmp/
 
 # Package Files #
-*.jar
+#*.jar
 *.war
 *.nar
 *.ear
