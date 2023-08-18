@@ -25,13 +25,15 @@ public class AlcoholGetController extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("AlcoholGetController 진입!!!!!!!!!!!");
-		String borderKind = request.getParameter("bno");
-		System.out.println("AlcoholGetController : "+ borderKind);
+		
+		
+		System.out.println("AlcoholGetController 진입!");
+		String priceBorderNo = request.getParameter("bno");
+		System.out.println("AlcoholGetController : "+ priceBorderNo);
 
 		AlcoholPriceListService service = new AlcoholPriceListService();
-		AlcoholPriceListDTO vo = service.selectOneAlcohol(borderKind);
-		request.setAttribute("bvo", vo);
+		AlcoholPriceListDTO vo = service.selectOneAlcohol(priceBorderNo);
+		request.setAttribute("bno", vo);
 		request.getRequestDispatcher("/WEB-INF/view/alcoholGet.jsp").forward(request, response);
 	}
 }

@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import kh.semi.alcohol.member.model.dto.AlcoholDTO;
 import kh.semi.alcohol.member.model.dto.AlcoholPriceListDTO;
 import kh.semi.alcohol.member.model.dto.MemberDTO;
-import kh.semi.alcohol.member.model.service.AlcoholService;
+import kh.semi.alcohol.member.model.service.AlcoholPriceListService;
 
 @WebServlet("/alcohollist")
 public class AlcoholController extends HttpServlet {
@@ -36,15 +36,15 @@ public class AlcoholController extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-		AlcoholService service = new AlcoholService();
+		AlcoholPriceListService service = new AlcoholPriceListService();
 		List<AlcoholPriceListDTO> result =null;
 		Map<String, Object> map = null;
 		//TODO
-//		if(searchWord !=null) {
-//			map = service.selectListAlcohol(currentPage, pageSize, searchWord);
-//		}else {
-//			map = service.selectOneAlcohol(currentPage, 10);
-//		}
+		if(searchWord !=null) {
+			map = service.selectListAlcohol(currentPage, pageSize, searchWord);
+		}else {
+			map = service.selectOneAlcohol(currentPage, 10);
+		}
 		request.setAttribute("alcoholList", map.get("alcohollList"));
 		int pageBlockSize = 5;
 		int totalCnt = (Integer)map.get("totalCnt");

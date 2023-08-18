@@ -21,7 +21,7 @@ public class AlcoholPriceListDAO {
 	public AlcoholPriceListDTO selectOneAlcohol(Connection conn, String priceBorderNo) {
 		System.out.println("DAO selectOneAlcohol() arg:" +priceBorderNo);
         AlcoholPriceListDTO result = null;
-		String query = "SELECT * FROM tb_alcohol WHERE BORDER_KIND = ?";
+		String query = "SELECT * FROM tb_alcohol WHERE PRICE_BORDER_NO = ?";
 		System.out.println("AlcoholPriceListDAO  :" + priceBorderNo);
 		
 		PreparedStatement pstmt = null;
@@ -53,14 +53,14 @@ public class AlcoholPriceListDAO {
 		return result;
 	}
 	
-	public List<AlcoholPriceListDTO> selectListAlcohol(Connection conn, String borderKind, String searchWord) {
+	public List<AlcoholPriceListDTO> selectListAlcohol(Connection conn, String priceBorderNo, String searchWord) {
 		List<AlcoholPriceListDTO>  result = new ArrayList<AlcoholPriceListDTO>();
-		String query = "select * from TB_ALCOHOL where BORDER_KIND=?";
+		String query = "select * from TB_ALCOHOL where PRICE_BORDER_NO=?";
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		try {
 			pstmt = conn.prepareStatement(query);
-			pstmt.setString(1, borderKind);
+			pstmt.setString(1, priceBorderNo);
 			rset = pstmt.executeQuery();
 			while (rset.next()) {
 				AlcoholPriceListDTO vo = new AlcoholPriceListDTO(rset.getInt("PRICE_BORDER_NO"), 
@@ -116,7 +116,7 @@ public class AlcoholPriceListDAO {
 //		
 //	}
 
-		public List<AlcoholPriceListDTO> selectListStudent(String searchWord){
+		public List<AlcoholPriceListDTO> selectListAlcohol(String searchWord){
 			String query = "select * from tb_Alcohol where BORDER_KIND like ? or PRODUCT_NAME like ?";
 			List<AlcoholPriceListDTO> result = null;
 			Connection conn = null;
@@ -152,14 +152,6 @@ public class AlcoholPriceListDAO {
 			return result;
 			
 		}
-
-	
-	public List<AlcoholPriceListDTO> selectListAlcohol(Connection conn){
-		List<AlcoholPriceListDTO> result = null ;
-		//TODO
-		
-		return result;
-	}
 
 	public List<AlcoholPriceListDTO> selectListAlcohol(Connection conn, int currentPage, int pageSize, int totalCnt){
 		List<AlcoholPriceListDTO> result = new ArrayList<AlcoholPriceListDTO>();

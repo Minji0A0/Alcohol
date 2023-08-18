@@ -29,6 +29,13 @@ public class AlcoholPriceListService {
 		return result;
 	}
 	
+	public AlcoholPriceListDTO selectOneAlcohol(int currentPage, int pageSize) {
+		Connection conn = getconnection();
+		AlcoholPriceListDTO result = dao.selectOneAlcohol(conn,currentPage, pageSize);
+		close(conn);
+		return result;
+	}
+
 	public List<AlcoholPriceListDTO> selectListAlcohol() {
 		Connection conn = getconnection();
 		List<AlcoholPriceListDTO> result = dao.selectListAlcohol(conn);
@@ -43,7 +50,7 @@ public class AlcoholPriceListService {
 		return result;
 	}
 	
-	public Map<String, Object> selectListStudent(int currentPage, int pageSize){
+	public Map<String, Object> selectListAlcohol(int currentPage, int pageSize){
 		Connection conn = getconnection();
 		int totalCnt = dao.getCount(conn);
 		System.out.println("service currentPage : " + currentPage);
@@ -56,7 +63,7 @@ public class AlcoholPriceListService {
 		map.put("studentList", result);
 		return map;
 	}
-	public Map<String, Object> selectListStudent(int currentPage, int pageSize, String searchWord){
+	public Map<String, Object> selectListAlcohol(int currentPage, int pageSize, String searchWord){
 		Connection conn = getconnection();
 		int totalCnt = dao.getSearchTotalCount(conn, searchWord);
 		List<AlcoholPriceListDTO> result = dao.selectListAlcohol(conn,currentPage, pageSize, totalCnt);

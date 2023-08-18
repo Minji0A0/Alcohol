@@ -19,6 +19,8 @@ public class AlcoholPriceListController extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		
 		// 경고창 띄우기 - 2
 		System.out.println("AlcoholPriceListController 결과");
 		String msg = (String)request.getSession().getAttribute("msg");

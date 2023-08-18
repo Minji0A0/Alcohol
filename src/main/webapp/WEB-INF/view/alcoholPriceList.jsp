@@ -67,7 +67,7 @@
         %>
 		<tr>
 			<td><a
-				href="<%=request.getContextPath()%>/alcoholGet?sno=<%=vo.getBorderKind() %>"><%=vo.getBorderKind() %></a></td>
+				href="<%=request.getContextPath()%>/alcoholGet?sno=<%=vo.getPriceBorderNo() %>"><%=vo.getPriceBorderNo() %></a></td>
 			<td><a
 				href="<%=request.getContextPath()%>/alcoholGet?sno=<%=vo.getProductName() %>"><%=vo.getProductName() %></a></td>
 			<td><%=vo.getRipening() %></td>

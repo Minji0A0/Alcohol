@@ -36,7 +36,7 @@
         .in_add { width: 250px; height:600px; padding: 10px;}
         input[type="text"] {width: 90px; padding: 3px; margin: 5px; justify-content: right;  }
         input[type="password"] {width: 90px; padding: 3px; margin: 5px; justify-content: right;  }
-        nav ul {margin:35px ;background-color: pink;  width: 100%;  list-style-type: none; display: flex; padding: 22px;position: fixed;}
+        nav ul {margin:35px ;background-color: pink;  width: 100%;  list-style-type: none; display: flex; padding: 22px;position: fixed;  justify-content: center;}
         nav ul li {padding: 0 20px ;margin: 0 30px; text-transform: uppercase; font-weight: bold; color: #333;}
         footer{width: 100%; height: 100px;;background-color: pink; position: fixed; bottom: 20px;}
         .in_foott{width: 100%; height: 20px;;background-color: gray; clear: left; position: fixed; bottom: 0;}
