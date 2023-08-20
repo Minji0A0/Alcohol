@@ -37,13 +37,11 @@ public class AlcoholController extends HttpServlet {
 			}
 		}
 		AlcoholPriceListService service = new AlcoholPriceListService();
-		List<AlcoholPriceListDTO> result =null;
 		Map<String, Object> map = null;
-		//TODO
 		if(searchWord !=null) {
 			map = service.selectListAlcohol(currentPage, pageSize, searchWord);
 		}else {
-			map = service.selectOneAlcohol(currentPage, 10);
+			map = service.selectListAlcohol(currentPage, pageSize);
 		}
 		request.setAttribute("alcoholList", map.get("alcohollList"));
 		int pageBlockSize = 5;

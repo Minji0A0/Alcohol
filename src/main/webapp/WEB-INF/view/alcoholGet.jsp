@@ -65,7 +65,7 @@
         <div class="in_nav center">
             <ul>
                 <li>ABOUT</li> 
-                <li><a href="${pageContext.request.contextPath}/get">PRICE</a></li>
+                <li><a href="${pageContext.request.contextPath}/pricelist">PRICE</a></li>
                 <li>Community</li>
                 <li>SALE</li>
                 <li>MAP</li>

@@ -24,17 +24,6 @@ public class AlcoholCommunityController extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String searchWord = "";
-
-        // Connection 얻어오기
-        Connection conn = JDBCTemp.getconnection();
-
-        AlcoholPriceListDAO dao = new AlcoholPriceListDAO();
-        List<AlcoholPriceListDTO> mlist = dao.selectListAlcohol(conn, searchWord);
-
-        // Connection 닫기
-        JDBCTemp.close(conn);
-
-        request.setAttribute("mlist", mlist); // 리스트 형태로 데이터 저장
         request.getRequestDispatcher("/WEB-INF/view/alcoholPriceList.jsp").forward(request, response);
     }
 

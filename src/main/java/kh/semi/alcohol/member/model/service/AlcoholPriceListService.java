@@ -13,14 +13,7 @@ import static kh.semi.alcohol.common.JDBCTemp.*;
 public class AlcoholPriceListService {
 
 	private AlcoholPriceListDAO dao = new AlcoholPriceListDAO();
-	
-	public int insertStudent(AlcoholPriceListDTO vo) {
-		int result = 0;
-		Connection conn = getconnection();
-		result = dao.insertAlcohol(conn,vo);
-		close(conn);
-		return result;
-	}
+
 	
 	public AlcoholPriceListDTO selectOneAlcohol(String borderKind) {
 		Connection conn = getconnection();
@@ -29,56 +22,45 @@ public class AlcoholPriceListService {
 		return result;
 	}
 	
-	public AlcoholPriceListDTO selectOneAlcohol(int currentPage, int pageSize) {
-		Connection conn = getconnection();
-		AlcoholPriceListDTO result = dao.selectOneAlcohol(conn,currentPage, pageSize);
-		close(conn);
-		return result;
-	}
-
-	public List<AlcoholPriceListDTO> selectListAlcohol() {
-		Connection conn = getconnection();
-		List<AlcoholPriceListDTO> result = dao.selectListAlcohol(conn);
-		close(conn);
-		return result;
-	}
-	
-	public List<AlcoholPriceListDTO> selectListAlcohol(String searchWord) {
-		Connection conn = getconnection();
-		List<AlcoholPriceListDTO> result = dao.selectListAlcohol(conn, searchWord);
-		close(conn);
-		return result;
-	}
-	
 	public Map<String, Object> selectListAlcohol(int currentPage, int pageSize){
 		Connection conn = getconnection();
-		int totalCnt = dao.getCount(conn);
-		System.out.println("service currentPage : " + currentPage);
-		System.out.println("service pageSize : "+ pageSize);
-		System.out.println("service 총글개수 : "+ totalCnt);
+		int totalCnt = dao.getTotalCount(conn);
+		System.out.println("[ service selectListAlcohol ] currentPage : " + currentPage);
+		System.out.println("[ service selectListAlcohol ] pageSize : "+ pageSize);
+		System.out.println("[ service selectListAlcohol ] totalCnt : "+ totalCnt);
+		
 		List<AlcoholPriceListDTO> result = dao.selectListAlcohol(conn,currentPage,pageSize,totalCnt);
 		close(conn);
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("totalCnt",  totalCnt);
-		map.put("studentList", result);
+		map.put("alcoholList", result);
+		System.out.println("[ service selectListAlcohol ] return : "+ map);
 		return map;
 	}
 	public Map<String, Object> selectListAlcohol(int currentPage, int pageSize, String searchWord){
 		Connection conn = getconnection();
+		
 		int totalCnt = dao.getSearchTotalCount(conn, searchWord);
-		List<AlcoholPriceListDTO> result = dao.selectListAlcohol(conn,currentPage, pageSize, totalCnt);
+		System.out.println("[ service selectListAlcohol ] searchWord : " + searchWord);
+		System.out.println("[ service selectListAlcohol ] currentPage : " + currentPage);
+		System.out.println("[ service selectListAlcohol ] pageSize : "+ pageSize);
+		System.out.println("[ service selectListAlcohol ] totalCnt : "+ totalCnt);
+		
+		List<AlcoholPriceListDTO> result = dao.selectListAlcohol(conn, currentPage, pageSize, totalCnt, searchWord);
+		
 		close(conn);
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("totalCnt", totalCnt);
-		map.put("studentList", result);
+		map.put("alcoholList", result);
+		System.out.println("[ service selectListAlcohol ] return : "+ map);
 		return map;
 	}
 	
-	public int getTotalCount() {
+	public int insertStudent(AlcoholPriceListDTO vo) {
+		int result = 0;
 		Connection conn = getconnection();
-		int result = dao.getTotalCount(conn);
+		result = dao.insertAlcohol(conn,vo);
 		close(conn);
 		return result;
-	
 	}
 }
